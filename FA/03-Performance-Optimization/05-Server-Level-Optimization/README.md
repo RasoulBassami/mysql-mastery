@@ -36,8 +36,8 @@ long_query_time = 1  # کوئری‌هایی که بیش از ۱ ثانیه طو
 <div dir="ltr">
 
 ```bash
-#comment: نمایش ۱۰ کوئری کند بر اساس میانگین زمان اجرا
-mysqldumpslow -s at /var/log/mysql/mysql-slow.log | head -10
+    #comment: نمایش ۱۰ کوئری کند بر اساس میانگین زمان اجرا
+    mysqldumpslow -s at /var/log/mysql/mysql-slow.log | head -10
 ```
 </div>
 

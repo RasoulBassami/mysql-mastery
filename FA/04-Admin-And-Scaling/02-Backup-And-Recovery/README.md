@@ -57,12 +57,12 @@
 <div dir="ltr">
 
 ```bash
-mysqldump -u root -p \
-    --single-transaction \
-    --quick \
-    --routines \
-    --triggers \
-    my_database_name | gzip > backup_$(date +%F).sql.gz
+  mysqldump -u root -p \
+      --single-transaction \
+      --quick \
+      --routines \
+      --triggers \
+      my_database_name | gzip > backup_$(date +%F).sql.gz
 ```
 
 </div>
@@ -76,7 +76,7 @@ mysqldump -u root -p \
 <div dir="ltr">
 
 ```bash
-mysqldump -u root -p --single-transaction --quick my_db | gzip | ssh user@backup_server_ip "cat > /path/to/backups/backup_$(date +%F).sql.gz"
+  mysqldump -u root -p --single-transaction --quick my_db | gzip | ssh user@backup_server_ip "cat > /path/to/backups/backup_$(date +%F).sql.gz"
 ```
 
 </div>
@@ -96,8 +96,8 @@ mysqldump -u root -p --single-transaction --quick my_db | gzip | ssh user@backup
 <div dir="ltr">
 
 ```bash
-# exmaple : حذف فایل‌های بک‌آپ قدیمی‌تر از ۷ روز
-find /path/to/backups -name "*.sql.gz" -mtime +7 -delete
+  # exmaple : حذف فایل‌های بک‌آپ قدیمی‌تر از ۷ روز
+  find /path/to/backups -name "*.sql.gz" -mtime +7 -delete
 ```
 
 </div>
@@ -107,7 +107,7 @@ find /path/to/backups -name "*.sql.gz" -mtime +7 -delete
 <div dir="ltr">
 
 ```bash
-gunzip < backup.sql.gz | mysql -u [username] -p [database_name]
+  gunzip < backup.sql.gz | mysql -u [username] -p [database_name]
 ```
 
 </div>

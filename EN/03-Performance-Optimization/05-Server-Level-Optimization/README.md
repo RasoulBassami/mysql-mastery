@@ -31,7 +31,7 @@ After changing the file, restart the MySQL service.
 You can read the file directly, but the `mysqldumpslow` tool (included with MySQL) makes it much easier. It summarizes the log for you.
 
 ```bash
-# Show top 10 slow queries sorted by average time
+    # Show top 10 slow queries sorted by average time
 mysqldumpslow -s at /var/log/mysql/mysql-slow.log | head -10
 ```
 

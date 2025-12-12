@@ -55,12 +55,12 @@ This command-line tool is your Swiss Army Knife for logical backups.
 For a multi-gigabyte database, this is the best command. It takes the backup, compresses it on the fly (using `gzip`), and timestamps the filename.
 
 ```bash
-mysqldump -u root -p \
-    --single-transaction \
-    --quick \
-    --routines \
-    --triggers \
-    my_database_name | gzip > backup_$(date +%F).sql.gz
+  mysqldump -u root -p \
+      --single-transaction \
+      --quick \
+      --routines \
+      --triggers \
+      my_database_name | gzip > backup_$(date +%F).sql.gz
 ```
 
 * **Why `gzip`?** SQL files are text and compress extremely well (usually 10:1 ratio). A 3GB database becomes \~300MB, making storage and transfer much faster.
@@ -70,7 +70,7 @@ mysqldump -u root -p \
 If you lack disk space on the source server or want to reduce I/O, you can stream the backup directly to another server (Backup Server) via SSH:
 
 ```bash
-mysqldump -u root -p --single-transaction --quick my_db | gzip | ssh user@backup_server_ip "cat > /path/to/backups/backup_$(date +%F).sql.gz"
+  mysqldump -u root -p --single-transaction --quick my_db | gzip | ssh user@backup_server_ip "cat > /path/to/backups/backup_$(date +%F).sql.gz"
 ```
 
 This method is highly professional as **not a single byte is written to the source server's disk**.
@@ -87,14 +87,14 @@ If your database gets corrupted today and you overwrite yesterday's healthy back
 Keep multiple versions of backups (e.g., last 7 daily backups and 4 weekly backups). A simple script can automatically delete old files:
 
 ```bash
-# Delete backup files older than 7 days
-find /path/to/backups -name "*.sql.gz" -mtime +7 -delete
+  # Delete backup files older than 7 days
+  find /path/to/backups -name "*.sql.gz" -mtime +7 -delete
 ```
 
 **Restore Command:**
 
 ```bash
-gunzip < backup.sql.gz | mysql -u [username] -p [database_name]
+  gunzip < backup.sql.gz | mysql -u [username] -p [database_name]
 ```
 
 -----

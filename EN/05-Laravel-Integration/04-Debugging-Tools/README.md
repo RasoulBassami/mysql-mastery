@@ -29,7 +29,7 @@ These tools have high overhead and **should NOT** be enabled on production serve
 Installation is simple via Composer:
 
 ```bash
-composer require barryvdh/laravel-debugbar --dev
+    composer require barryvdh/laravel-debugbar --dev
 ```
 
 ### Laravel Telescope: Your Command Center
@@ -45,9 +45,9 @@ composer require barryvdh/laravel-debugbar --dev
 Installation:
 
 ```bash
-composer require laravel/telescope --dev
-php artisan telescope:install
-php artisan migrate
+    composer require laravel/telescope --dev
+    php artisan telescope:install
+    php artisan migrate
 ```
 
 > **⚠️ Production Warning:** Telescope stores all data in the database. In high-traffic production, it can quickly fill up your DB and slow down the site. If you must use it in production, ensure you use **Pruning** and restrict access via **Gates**.
